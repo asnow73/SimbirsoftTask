@@ -30,7 +30,7 @@ namespace SimbirsoftTask.Models.Repository
 
         bool UpdateUser(User instance);
 
-        /*bool RemoveUser(int id);*/
+        bool RemoveUser(int id);
 
         #endregion
     }

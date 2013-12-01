@@ -93,15 +93,14 @@ namespace SimbirsoftTask.Controllers
             return View(user);
         }
 
-        /*
         // GET: /User/Delete/5
         public ActionResult Delete(int? id)
-        {
+        {           
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
+            User user = repo.GetUser(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -114,11 +113,9 @@ namespace SimbirsoftTask.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            User user = db.Users.Find(id);
-            db.Users.Remove(user);
-            db.SaveChanges();
+            repo.RemoveUser(id);
             return RedirectToAction("Index");
-        }*/
+        }
 
         protected override void Dispose(bool disposing)
         {

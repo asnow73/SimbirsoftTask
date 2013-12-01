@@ -54,8 +54,7 @@ namespace SimbirsoftTask.Models.Repository
             Role instance = Db.Roles.Where(p => p.Id == id).FirstOrDefault();
             if (instance != null)
             {
-                Role role = Db.Roles.Find(id);
-                db.Roles.Remove(role);
+                db.Roles.Remove(instance);
                 db.SaveChanges();
                 return true;
             }
