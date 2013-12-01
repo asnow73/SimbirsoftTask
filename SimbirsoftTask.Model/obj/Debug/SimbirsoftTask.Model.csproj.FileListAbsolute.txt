@@ -1,0 +1,8 @@
+D:\MyProjects\SimbirsoftTask\SimbirsoftTask.Model\bin\Debug\SimbirsoftTask.Model.dll.config
+D:\MyProjects\SimbirsoftTask\SimbirsoftTask.Model\bin\Debug\SimbirsoftTask.Model.dll
+D:\MyProjects\SimbirsoftTask\SimbirsoftTask.Model\bin\Debug\SimbirsoftTask.Model.pdb
+D:\MyProjects\SimbirsoftTask\SimbirsoftTask.Model\bin\Debug\Ninject.dll
+D:\MyProjects\SimbirsoftTask\SimbirsoftTask.Model\bin\Debug\Ninject.pdb
+D:\MyProjects\SimbirsoftTask\SimbirsoftTask.Model\bin\Debug\Ninject.xml
+D:\MyProjects\SimbirsoftTask\SimbirsoftTask.Model\obj\Debug\SimbirsoftTask.Model.dll
+D:\MyProjects\SimbirsoftTask\SimbirsoftTask.Model\obj\Debug\SimbirsoftTask.Model.pdb
