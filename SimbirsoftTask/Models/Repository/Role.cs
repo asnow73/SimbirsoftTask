@@ -5,7 +5,7 @@ using System.Web;
 
 namespace SimbirsoftTask.Models.Repository
 {
-    public partial class SqlRepository
+    public partial class SqlRepository : IRepository
     {
         public IQueryable<Role> Roles
         {
@@ -15,25 +15,25 @@ namespace SimbirsoftTask.Models.Repository
             }
         }
 
-        public Role getRole(int? id)
+        public Role GetRole(int? id)
         {
             Role role = Db.Roles.Find(id);
             return role;
         }
 
 
-        /*public bool CreateUser(User instance)
+        public bool CreateRole(Role instance)
         {
             if (instance.Id == 0)
             {
-                Db.Users.InsertOnSubmit(instance);
-                Db.Users.Context.SubmitChanges();
+                Db.Roles.Add(instance);
+                Db.SaveChanges();
                 return true;
             }
 
             return false;
         }
-
+        /*
         public bool UpdateUser(User instance)
         {
             User cache = Db.Users.Where(p => p.Id == instance.Id).FirstOrDefault();

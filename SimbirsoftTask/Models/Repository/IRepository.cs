@@ -11,11 +11,11 @@ namespace SimbirsoftTask.Models.Repository
         #region Role
         IQueryable<Role> Roles { get; }
 
-        Role getRole(int? id);
+        Role GetRole(int? id);
 
-        /*bool CreateRole(Role instance);
+        bool CreateRole(Role instance);
 
-        bool UpdateRole(Role instance);
+        /*bool UpdateRole(Role instance);
 
         bool RemoveRole(int idRole);*/
 

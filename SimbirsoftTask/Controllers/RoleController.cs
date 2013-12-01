@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-//using SimbirsoftTask.Models;
+using SimbirsoftTask.Models;
 using SimbirsoftTask.Models.Repository;
 
 namespace SimbirsoftTask.Controllers
@@ -33,13 +33,13 @@ namespace SimbirsoftTask.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var role = repo.getRole(id);
+            var role = repo.GetRole(id);
             if (role == null)
             {
                 return HttpNotFound();
             }
             return View(role);
-        }/*
+        }
 
         // GET: /Role/Create
         public ActionResult Create()
@@ -47,23 +47,31 @@ namespace SimbirsoftTask.Controllers
             return View();
         }
 
+        
         // POST: /Role/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,Name")] Role role)
+        //public ActionResult Create([Bind(Include="Id,Name")] Role role)
+        public ActionResult Create(Role role)
         {
-            if (ModelState.IsValid)
+            /*if (ModelState.IsValid)
             {
                 db.Roles.Add(role);
                 db.SaveChanges();
+                return RedirectToAction("Index");
+            }*/
+            if (ModelState.IsValid)
+            {
+                repo.CreateRole(role);
                 return RedirectToAction("Index");
             }
 
             return View(role);
         }
 
+        /*
         // GET: /Role/Edit/5
         public ActionResult Edit(int? id)
         {
