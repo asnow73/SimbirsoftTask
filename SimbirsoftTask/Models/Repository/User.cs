@@ -22,12 +22,11 @@ namespace SimbirsoftTask.Models.Repository
             return user;
         }
 
-        /*
-        public bool CreateRole(Role instance)
+        public bool CreateUser(User instance)
         {
             if (instance.Id == 0)
             {
-                Db.Roles.Add(instance);
+                Db.Users.Add(instance);
                 Db.SaveChanges();
                 return true;
             }
@@ -35,6 +34,7 @@ namespace SimbirsoftTask.Models.Repository
             return false;
         }
 
+        /*
         public bool UpdateRole(Role instance)
         {
             Role role = Db.Roles.Where(p => p.Id == instance.Id).FirstOrDefault();

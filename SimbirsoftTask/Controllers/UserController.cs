@@ -39,7 +39,6 @@ namespace SimbirsoftTask.Controllers
             return View(user);
         }
 
-        /*
         // GET: /User/Create
         public ActionResult Create()
         {
@@ -55,14 +54,14 @@ namespace SimbirsoftTask.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Users.Add(user);
-                db.SaveChanges();
+                repo.CreateUser(user);
                 return RedirectToAction("Index");
             }
 
             return View(user);
         }
 
+        /*
         // GET: /User/Edit/5
         public ActionResult Edit(int? id)
         {

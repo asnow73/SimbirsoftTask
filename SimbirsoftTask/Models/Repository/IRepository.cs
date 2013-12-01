@@ -26,9 +26,9 @@ namespace SimbirsoftTask.Models.Repository
 
         User GetUser(int? id);
 
-        /*bool CreateUser(User instance);
+        bool CreateUser(User instance);
 
-        bool UpdateUser(User instance);
+        /*bool UpdateUser(User instance);
 
         bool RemoveUser(int id);*/
 
