@@ -22,8 +22,7 @@ namespace SimbirsoftTask.Controllers
             var users = repo.Users.ToList();
             return View(users);
         }
-
-        /*
+        
         // GET: /User/Details/5
         public ActionResult Details(int? id)
         {
@@ -31,7 +30,8 @@ namespace SimbirsoftTask.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
+
+            var user = repo.GetUser(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -39,6 +39,7 @@ namespace SimbirsoftTask.Controllers
             return View(user);
         }
 
+        /*
         // GET: /User/Create
         public ActionResult Create()
         {

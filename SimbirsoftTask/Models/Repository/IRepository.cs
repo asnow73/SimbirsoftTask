@@ -24,9 +24,9 @@ namespace SimbirsoftTask.Models.Repository
         #region User
         IQueryable<User> Users { get; }
 
-        /*Role GetUser(int? id);
+        User GetUser(int? id);
 
-        bool CreateUser(User instance);
+        /*bool CreateUser(User instance);
 
         bool UpdateUser(User instance);
 
