@@ -98,7 +98,6 @@ namespace SimbirsoftTask.Controllers
             return View(role);
         }
 
-        /*
         // GET: /Role/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -106,7 +105,7 @@ namespace SimbirsoftTask.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Role role = db.Roles.Find(id);
+            Role role = repo.GetRole(id);
             if (role == null)
             {
                 return HttpNotFound();
@@ -118,12 +117,10 @@ namespace SimbirsoftTask.Controllers
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
-        {
-            Role role = db.Roles.Find(id);
-            db.Roles.Remove(role);
-            db.SaveChanges();
+        {          
+            repo.RemoveRole(id);
             return RedirectToAction("Index");
-        }*/
+        }
 
         protected override void Dispose(bool disposing)
         {

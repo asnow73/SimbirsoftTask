@@ -48,19 +48,20 @@ namespace SimbirsoftTask.Models.Repository
 
             return false;
         }
-        /*
-        public bool RemoveUser(int idUser)
+        
+        public bool RemoveRole(int id)
         {
-            User instance = Db.Users.Where(p => p.Id == idUser).FirstOrDefault();
+            Role instance = Db.Roles.Where(p => p.Id == id).FirstOrDefault();
             if (instance != null)
             {
-                Db.Users.DeleteOnSubmit(instance);
-                Db.Users.Context.SubmitChanges();
+                Role role = Db.Roles.Find(id);
+                db.Roles.Remove(role);
+                db.SaveChanges();
                 return true;
             }
 
             return false;
-        }*/
+        }
 
     }
 }
