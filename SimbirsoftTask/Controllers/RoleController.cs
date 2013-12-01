@@ -90,8 +90,6 @@ namespace SimbirsoftTask.Controllers
         {
             if (ModelState.IsValid)
             {
-                //db.Entry(role).State = EntityState.Modified;
-                //db.SaveChanges();
                 repo.UpdateRole(role);
                 return RedirectToAction("Index");
             }

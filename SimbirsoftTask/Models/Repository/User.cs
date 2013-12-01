@@ -34,14 +34,18 @@ namespace SimbirsoftTask.Models.Repository
             return false;
         }
 
-        /*
-        public bool UpdateRole(Role instance)
+        
+        public bool UpdateUser(User instance)
         {
-            Role role = Db.Roles.Where(p => p.Id == instance.Id).FirstOrDefault();
-            if (role != null)
+            User user = Db.Users.Where(p => p.Id == instance.Id).FirstOrDefault();
+            if (user != null)
             {
-                role.Name = instance.Name;
-                db.Entry(role).State = EntityState.Modified;
+                user.Email = instance.Email;
+                user.Password = instance.Password;
+                user.Name = instance.Name;
+                user.Surname = instance.Surname;
+                user.Birthday = instance.Birthday;
+                db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
                 return true;
             }
@@ -49,6 +53,7 @@ namespace SimbirsoftTask.Models.Repository
             return false;
         }
 
+        /*
         public bool RemoveRole(int id)
         {
             Role instance = Db.Roles.Where(p => p.Id == id).FirstOrDefault();

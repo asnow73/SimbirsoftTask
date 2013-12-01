@@ -61,7 +61,7 @@ namespace SimbirsoftTask.Controllers
             return View(user);
         }
 
-        /*
+        
         // GET: /User/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -69,14 +69,15 @@ namespace SimbirsoftTask.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
+
+            User user = repo.GetUser(id);
             if (user == null)
             {
                 return HttpNotFound();
             }
             return View(user);
         }
-
+        
         // POST: /User/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -86,13 +87,13 @@ namespace SimbirsoftTask.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(user).State = EntityState.Modified;
-                db.SaveChanges();
+                repo.UpdateUser(user);
                 return RedirectToAction("Index");
             }
             return View(user);
         }
 
+        /*
         // GET: /User/Delete/5
         public ActionResult Delete(int? id)
         {
