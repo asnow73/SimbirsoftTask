@@ -15,9 +15,9 @@ namespace SimbirsoftTask.Models.Repository
 
         bool CreateRole(Role instance);
 
-        /*bool UpdateRole(Role instance);
+        bool UpdateRole(Role instance);
 
-        bool RemoveRole(int idRole);*/
+        /*bool RemoveRole(int idRole);*/
 
         #endregion
     }

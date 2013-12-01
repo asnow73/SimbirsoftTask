@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 
 namespace SimbirsoftTask.Models.Repository
 {
@@ -33,24 +34,21 @@ namespace SimbirsoftTask.Models.Repository
 
             return false;
         }
-        /*
-        public bool UpdateUser(User instance)
+        
+        public bool UpdateRole(Role instance)
         {
-            User cache = Db.Users.Where(p => p.Id == instance.Id).FirstOrDefault();
-            if (cache != null)
-            {
-                cache.Email = instance.Email;
-                cache.Password = instance.Password;
-                cache.Name = instance.Name;
-                cache.Surname = instance.Surname;
-                cache.Birthday = instance.Birthday;
-                Db.Users.Context.SubmitChanges();
+            Role role = Db.Roles.Where(p => p.Id == instance.Id).FirstOrDefault();
+            if (role != null)
+            {                
+                role.Name = instance.Name;
+                db.Entry(role).State = EntityState.Modified;
+                db.SaveChanges();
                 return true;
             }
 
             return false;
         }
-
+        /*
         public bool RemoveUser(int idUser)
         {
             User instance = Db.Users.Where(p => p.Id == idUser).FirstOrDefault();

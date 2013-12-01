@@ -53,15 +53,8 @@ namespace SimbirsoftTask.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //public ActionResult Create([Bind(Include="Id,Name")] Role role)
-        public ActionResult Create(Role role)
+        public ActionResult Create([Bind(Include="Id,Name")] Role role)
         {
-            /*if (ModelState.IsValid)
-            {
-                db.Roles.Add(role);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }*/
             if (ModelState.IsValid)
             {
                 repo.CreateRole(role);
@@ -71,7 +64,7 @@ namespace SimbirsoftTask.Controllers
             return View(role);
         }
 
-        /*
+        
         // GET: /Role/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -79,14 +72,15 @@ namespace SimbirsoftTask.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Role role = db.Roles.Find(id);
+
+            Role role = repo.GetRole(id);
             if (role == null)
             {
                 return HttpNotFound();
             }
             return View(role);
         }
-
+        
         // POST: /Role/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -96,13 +90,15 @@ namespace SimbirsoftTask.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(role).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(role).State = EntityState.Modified;
+                //db.SaveChanges();
+                repo.UpdateRole(role);
                 return RedirectToAction("Index");
             }
             return View(role);
         }
 
+        /*
         // GET: /Role/Delete/5
         public ActionResult Delete(int? id)
         {
