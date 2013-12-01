@@ -15,6 +15,13 @@ namespace SimbirsoftTask.Models.Repository
             }
         }
 
+        public Role getRole(int? id)
+        {
+            Role role = Db.Roles.Find(id);
+            return role;
+        }
+
+
         /*public bool CreateUser(User instance)
         {
             if (instance.Id == 0)

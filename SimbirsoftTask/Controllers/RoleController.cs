@@ -23,7 +23,7 @@ namespace SimbirsoftTask.Controllers
             return View(roles);
         }
 
-        /*
+        
 
         // GET: /Role/Details/5
         public ActionResult Details(int? id)
@@ -32,13 +32,14 @@ namespace SimbirsoftTask.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Role role = db.Roles.Find(id);
+
+            var role = repo.getRole(id);
             if (role == null)
             {
                 return HttpNotFound();
             }
             return View(role);
-        }
+        }/*
 
         // GET: /Role/Create
         public ActionResult Create()

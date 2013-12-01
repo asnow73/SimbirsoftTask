@@ -11,6 +11,8 @@ namespace SimbirsoftTask.Models.Repository
         #region Role
         IQueryable<Role> Roles { get; }
 
+        Role getRole(int? id);
+
         /*bool CreateRole(Role instance);
 
         bool UpdateRole(Role instance);
