@@ -11,5 +11,7 @@ namespace SimbirsoftTask.Models
         public virtual int Id { get; set; }
         // Название роли
         public virtual string Name { get; set; }
+
+        public IEnumerable<User> Users { get; set; }
     }
 }

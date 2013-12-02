@@ -42,6 +42,9 @@ namespace SimbirsoftTask.Controllers
         // GET: /User/Create
         public ActionResult Create()
         {
+            // Формируем список команд для передачи в представление
+            SelectList roles = new SelectList(repo.Roles, "Id", "Name");
+            ViewBag.Roles = roles;
             return View();
         }
 
@@ -50,8 +53,8 @@ namespace SimbirsoftTask.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,Email,Password,Name,Surname,Birthday")] User user)
-        {
+        public ActionResult Create([Bind(Include="Id,Email,Password,Name,Surname,Birthday,RoleId")] User user)
+        {           
             if (ModelState.IsValid)
             {
                 repo.CreateUser(user);
@@ -75,6 +78,8 @@ namespace SimbirsoftTask.Controllers
             {
                 return HttpNotFound();
             }
+            SelectList roles = new SelectList(repo.Roles, "Id", "Name", user.RoleId);
+            ViewBag.Roles = roles;
             return View(user);
         }
         
@@ -83,7 +88,7 @@ namespace SimbirsoftTask.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,Email,Password,Name,Surname,Birthday")] User user)
+        public ActionResult Edit([Bind(Include="Id,Email,Password,Name,Surname,Birthday,RoleId")] User user)
         {
             if (ModelState.IsValid)
             {

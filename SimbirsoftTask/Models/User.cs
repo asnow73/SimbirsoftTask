@@ -19,5 +19,8 @@ namespace SimbirsoftTask.Models
         public virtual string Surname { get; set; }
         // День рождения пользователя
         public virtual DateTime Birthday { get; set; }
+
+        public int? RoleId { get; set; }
+        public Role Role { get; set; }
     }
 }

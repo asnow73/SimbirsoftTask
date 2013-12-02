@@ -12,7 +12,11 @@ namespace SimbirsoftTask.Models.Repository
         {
             get
             {
-                return Db.Users;
+                var users = Db.Users.Include(p => p.Role);
+                //return View(players.ToList());
+
+                //return Db.Users;
+                return users;
             }
         }
 
@@ -45,6 +49,7 @@ namespace SimbirsoftTask.Models.Repository
                 user.Name = instance.Name;
                 user.Surname = instance.Surname;
                 user.Birthday = instance.Birthday;
+                user.RoleId = instance.RoleId;
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
                 return true;
