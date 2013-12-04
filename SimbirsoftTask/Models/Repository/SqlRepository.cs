@@ -5,10 +5,10 @@ using System.Web;
 
 namespace SimbirsoftTask.Models.Repository
 {
-    public partial class SqlRepository : IRepository
+    public partial class SqlRepository : IRepository, IDisposable
     {
         private DataBaseContext db = new DataBaseContext();
-        public DataBaseContext Db 
+        private DataBaseContext Db 
         {
             get
             {

@@ -9,6 +9,9 @@ using System.Web.Mvc;
 using SimbirsoftTask.Models;
 using SimbirsoftTask.Models.Repository;
 
+using System.Web.Security;
+using SimbirsoftTask.Providers;
+
 namespace SimbirsoftTask.Controllers
 {
     public class UserController : Controller
@@ -46,6 +49,8 @@ namespace SimbirsoftTask.Controllers
             SelectList roles = new SelectList(repo.Roles, "Id", "Name");
             ViewBag.Roles = roles;
             return View();
+            //ViewBag.RoleFieldVisible = true;
+            //return View("~/Views/User/Create.cshtml");
         }
 
         // POST: /User/Create

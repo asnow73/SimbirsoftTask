@@ -22,6 +22,14 @@ namespace SimbirsoftTask.Models.Repository
             return role;
         }
 
+        public Role GetRoleByName(string Name)
+        {
+            Role role = (from u in Db.Roles
+                         where u.Name == Name
+                         select u).FirstOrDefault();
+            return role;
+        }
+
 
         public bool CreateRole(Role instance)
         {

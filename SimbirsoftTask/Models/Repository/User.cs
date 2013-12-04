@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using System.Web.Helpers;
+using System.Security.Cryptography;
 
 namespace SimbirsoftTask.Models.Repository
 {
@@ -13,9 +15,6 @@ namespace SimbirsoftTask.Models.Repository
             get
             {
                 var users = Db.Users.Include(p => p.Role);
-                //return View(players.ToList());
-
-                //return Db.Users;
                 return users;
             }
         }
@@ -26,10 +25,19 @@ namespace SimbirsoftTask.Models.Repository
             return user;
         }
 
+        public User GetUserByEmail(string email)
+        {
+            User user = (from u in Db.Users
+                         where u.Email == email
+                         select u).FirstOrDefault();
+            return user;
+        }
+
         public bool CreateUser(User instance)
         {
             if (instance.Id == 0)
             {
+                instance.Password = Crypto.HashPassword(instance.Password);
                 Db.Users.Add(instance);
                 Db.SaveChanges();
                 return true;
@@ -45,7 +53,7 @@ namespace SimbirsoftTask.Models.Repository
             if (user != null)
             {
                 user.Email = instance.Email;
-                user.Password = instance.Password;
+                user.Password = Crypto.HashPassword(instance.Password);
                 user.Name = instance.Name;
                 user.Surname = instance.Surname;
                 user.Birthday = instance.Birthday;

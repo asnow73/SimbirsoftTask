@@ -13,6 +13,8 @@ namespace SimbirsoftTask.Models.Repository
 
         Role GetRole(int? id);
 
+        Role GetRoleByName(string Name);
+
         bool CreateRole(Role instance);
 
         bool UpdateRole(Role instance);
@@ -25,6 +27,8 @@ namespace SimbirsoftTask.Models.Repository
         IQueryable<User> Users { get; }
 
         User GetUser(int? id);
+
+        User GetUserByEmail(string email);
 
         bool CreateUser(User instance);
 

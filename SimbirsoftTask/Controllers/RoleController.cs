@@ -11,6 +11,7 @@ using SimbirsoftTask.Models.Repository;
 
 namespace SimbirsoftTask.Controllers
 {
+    [Authorize(Roles = "administrator")]
     public class RoleController : Controller
     {
         private SqlRepository repo = new SqlRepository();
@@ -22,8 +23,6 @@ namespace SimbirsoftTask.Controllers
             var roles = repo.Roles.ToList();
             return View(roles);
         }
-
-        
 
         // GET: /Role/Details/5
         public ActionResult Details(int? id)
